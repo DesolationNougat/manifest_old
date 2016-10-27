@@ -1,17 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
 
+  <remote  name="github"
+           fetch="https://github.com/" />
+
+  <remote  name="deso"
+           fetch="https://github.com/DesolationROM/"
+           revision="n" />
+
+  <remote  name="deso-devices"
+           fetch="https://github.com/DesolationROM-Devices/"
+           revision="n" />
+
+  <remote  name="bb"
+           fetch="https://bitbucket.org/" />
+
   <remote  name="aosp"
-           fetch=".." />
+           fetch="https://android.googlesource.com"
+           review="android-review.googlesource.com"
+           revision="refs/tags/android-7.1.0_r4" />
+
   <default revision="refs/tags/android-7.1.0_r4"
            remote="aosp"
+           sync-c="true"
            sync-j="4" />
 
-  <project path="build" name="platform/build" groups="pdk,tradefed" >
-    <copyfile src="core/root.mk" dest="Makefile" />
-  </project>
   <project path="build/blueprint" name="platform/build/blueprint" groups="pdk,tradefed" />
-  <project path="build/kati" name="platform/build/kati" groups="pdk,tradefed" />
   <project path="build/soong" name="platform/build/soong" groups="pdk,tradefed" >
     <linkfile src="root.bp" dest="Android.bp" />
     <linkfile src="bootstrap.bash" dest="bootstrap.bash" />
@@ -19,7 +33,6 @@
   <project path="abi/cpp" name="platform/abi/cpp" groups="pdk" />
   <project path="art" name="platform/art" groups="pdk" />
   <project path="bionic" name="platform/bionic" groups="pdk" />
-  <project path="bootable/recovery" name="platform/bootable/recovery" groups="pdk" />
   <project path="cts" name="platform/cts" groups="cts,pdk-cw-fs,pdk-fs" />
   <project path="dalvik" name="platform/dalvik" groups="pdk-cw-fs,pdk-fs" />
   <project path="developers/build" name="platform/developers/build" />
@@ -313,7 +326,6 @@
   <project path="external/zopfli" name="platform/external/zopfli" groups="pdk-cw-fs,pdk-fs" />
   <project path="external/zxing" name="platform/external/zxing" groups="pdk-cw-fs,pdk-fs" />
   <project path="frameworks/av" name="platform/frameworks/av" groups="pdk" />
-  <project path="frameworks/base" name="platform/frameworks/base" groups="pdk-cw-fs,pdk-fs" />
   <project path="frameworks/compile/libbcc" name="platform/frameworks/compile/libbcc" groups="pdk" />
   <project path="frameworks/compile/mclinker" name="platform/frameworks/compile/mclinker" groups="pdk" />
   <project path="frameworks/compile/slang" name="platform/frameworks/compile/slang" groups="pdk" />
@@ -321,7 +333,6 @@
   <project path="frameworks/minikin" name="platform/frameworks/minikin" groups="pdk-cw-fs,pdk-fs" />
   <project path="frameworks/ml" name="platform/frameworks/ml" groups="pdk-cw-fs,pdk-fs" />
   <project path="frameworks/multidex" name="platform/frameworks/multidex" groups="pdk-cw-fs,pdk-fs" />
-  <project path="frameworks/native" name="platform/frameworks/native" groups="pdk" />
   <project path="frameworks/opt/bitmap" name="platform/frameworks/opt/bitmap" groups="pdk-fs" />
   <project path="frameworks/opt/bluetooth" name="platform/frameworks/opt/bluetooth" groups="pdk-cw-fs,pdk-fs" />
   <project path="frameworks/opt/calendar" name="platform/frameworks/opt/calendar" groups="pdk-cw-fs,pdk-fs" />
@@ -429,7 +440,6 @@
   <project path="packages/apps/Provision" name="platform/packages/apps/Provision" groups="pdk-fs" />
   <project path="packages/apps/QuickSearchBox" name="platform/packages/apps/QuickSearchBox" groups="pdk-fs" />
   <project path="packages/apps/SafetyRegulatoryInfo" name="platform/packages/apps/SafetyRegulatoryInfo" />
-  <project path="packages/apps/Settings" name="platform/packages/apps/Settings" groups="pdk-fs" />
   <project path="packages/apps/SoundRecorder" name="platform/packages/apps/SoundRecorder" groups="pdk-fs" />
   <project path="packages/apps/SpareParts" name="platform/packages/apps/SpareParts" groups="pdk-fs" />
   <project path="packages/apps/SpeechRecorder" name="platform/packages/apps/SpeechRecorder" groups="pdk-fs" />
@@ -506,11 +516,11 @@
   <project path="prebuilts/sdk" name="platform/prebuilts/sdk" groups="pdk" />
   <project path="prebuilts/tools" name="platform/prebuilts/tools" groups="pdk,tools" />
   <project path="sdk" name="platform/sdk" groups="pdk-cw-fs,pdk-fs" />
-  <project path="system/bt" name="platform/system/bt" groups="pdk" />
   <project path="system/ca-certificates" name="platform/system/ca-certificates" groups="pdk" />
   <project path="system/connectivity/apmanager" name="platform/system/connectivity/apmanager" />
   <project path="system/connectivity/dhcp_client" name="platform/system/connectivity/dhcp_client" />
   <project path="system/connectivity/shill" name="platform/system/connectivity/shill" />
+  <project path="system/bt" name="platform/system/bt" groups="pdk" />
   <project path="system/core" name="platform/system/core" groups="pdk" />
   <project path="system/extras" name="platform/system/extras" groups="pdk" />
   <project path="system/firewalld" name="platform/system/firewalld" />
@@ -521,7 +531,6 @@
   <project path="system/netd" name="platform/system/netd" groups="pdk" />
   <project path="system/nvram" name="platform/system/nvram" />
   <project path="system/security" name="platform/system/security" groups="pdk" />
-  <project path="system/sepolicy" name="platform/system/sepolicy" groups="pdk" />
   <project path="system/tools/aidl" name="platform/system/tools/aidl" groups="pdk-cw-fs,pdk-fs" />
   <project path="system/tpm" name="platform/system/tpm" />
   <project path="system/update_engine" name="platform/system/update_engine" />
@@ -541,5 +550,44 @@
   <project path="tools/swt" name="platform/tools/swt" groups="notdefault,tools" />
   <project path="tools/test/connectivity" name="platform/tools/test/connectivity" />
   <project path="tools/tradefederation" name="platform/tools/tradefederation" groups="notdefault,tradefed" />
+
+  <!-- DESOLATION -->
+  <project path="bootable/recovery" name="platform/bootable/recovery" groups="pdk" remote="deso" />
+  <project path="build" name="platform/build" groups="pdk,tradefed" remote="deso" >
+    <copyfile src="core/root.mk" dest="Makefile" />
+  </project>
+  <project path="build/kati" name="platform/build/kati" groups="pdk,tradefed" remote="deso" />
+  <project path="frameworks/base" name="frameworks_base" groups="pdk-cw-fs,pdk-fs" remote="deso" />
+  <project path="frameworks/native" name="frameworks_native" groups="pdk" remote="deso" />
+  <project path="manifest" name="manifest" remote="deso" />
+  <project path="packages/apps/NovaLauncher" name="packages_apps_NovaLauncher" remote="deso" />
+  <project path="packages/apps/Settings" name="platform/packages/apps/Settings" groups="pdk-fs" remote="deso" />
+  <project path="system/sepolicy" name="platform/system/sepolicy" groups="pdk" remote="deso" />
+  <project path="vendor/deso" name="vendor_deso" remote="deso" />
+  <!-- DESOLATION END -->
+
+  <!-- TOOLCHAINS -->
+  <project path="prebuilts/gcc/linux-x86/arm/arm-eabi-4.9-uber" name="UBERTC/arm-eabi-4.9" remote="bb" revision="master" />
+  <project path="prebuilts/gcc/linux-x86/arm/arm-eabi-4.9-xanax" name="xanaxdroid/arm-eabi-4.9" remote="bb" revision="sabermod" />
+  <project path="prebuilts/gcc/linux-x86/arm/arm-eabi-5.3-uber" name="UBERTC/arm-eabi-5.3" remote="bb" revision="master" />
+  <project path="prebuilts/gcc/linux-x86/arm/arm-eabi-5.3-uberopt" name="REV3NT3CH/uber-arm-eabi-cortex-a15-5.3" remote="bb" revision="master" />
+  <project path="prebuilts/gcc/linux-x86/arm/arm-eabi-5.3-xanax" name="xanaxdroid/arm-eabi-5.3" remote="bb" revision="sabermod" />
+  <project path="prebuilts/gcc/linux-x86/arm/arm-eabi-5.4-gnu" name="USA-RedDragon/arm-eabi-5.4" remote="github" revision="master" />
+  <project path="prebuilts/gcc/linux-x86/arm/arm-eabi-6.0-uber" name="UBERTC/arm-eabi-6.0" remote="bb" revision="master" />
+  <project path="prebuilts/gcc/linux-x86/arm/arm-eabi-6.0-xanax" name="xanaxdroid/arm-eabi-6.0" remote="bb" revision="sabermod" />
+  <project path="prebuilts/gcc/linux-x86/arm/arm-eabi-7.0-xanax" name="xanaxdroid/arm-eabi-7.0" remote="bb" revision="sabermod" />
+  <project path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9-uber" name="UBERTC/arm-linux-androideabi-4.9" remote="bb" revision="master" />
+  <project path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9-xanax" name="xanaxdroid/arm-linux-androideabi-4.9" remote="bb" revision="sabermod" />
+  <project path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-5.2-xanax" name="xanaxdroid/arm-linux-androideabi-5.2" remote="bb" revision="sabermod" />
+  <project path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-5.3-uber" name="UBERTC/arm-linux-androideabi-5.3" remote="bb" revision="master" />
+  <project path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-5.3-xanax" name="xanaxdroid/arm-linux-androideabi-5.3" remote="bb" revision="sabermod" />
+  <project path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-6.0-xanax" name="xanaxdroid/arm-linux-androideabi-6.0" remote="bb" revision="sabermod" />
+  <project path="prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9-uber" name="UBERTC/aarch64-linux-android-4.9" remote="bb" revision="master" />
+  <project path="prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9-kernel-uber" name="UBERTC/aarch64-linux-android-4.9-kernel" remote="bb" revision="master" />
+  <project path="prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9-kernel-xanax" name="xanaxdroid/aarch64-4.9" remote="bb" revision="sabermod" />
+  <project path="prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-5.3-kernel-xanax" name="xanaxdroid/aarch64-5.3" remote="bb" revision="sabermod" />
+  <project path="prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-6.0-kernel-uber" name="UBERTC/aarch64-linux-android-6.0-kernel" remote="bb" revision="master" />
+  <project path="prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-6.1-kernel-xanax" name="xanaxdroid/aarch64-6.1" remote="bb" revision="sabermod" />
+  <!-- TOOLCHAINS END -->
 
 </manifest>
