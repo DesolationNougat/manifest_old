@@ -535,17 +535,17 @@
   <project path="tools/tradefederation" name="platform/tools/tradefederation" groups="notdefault,tradefed" />
 
   <!-- DESOLATION -->
-  <project path="bootable/recovery" name="platform/bootable/recovery" groups="pdk" remote="deso" />
-  <project path="build" name="platform/build" groups="pdk,tradefed" remote="deso" >
+  <project path="bootable/recovery" name="bootable_recovery" groups="pdk" remote="deso" />
+  <project path="build" name="build" groups="pdk,tradefed" remote="deso" >
     <copyfile src="core/root.mk" dest="Makefile" />
   </project>
-  <project path="build/kati" name="platform/build/kati" groups="pdk,tradefed" remote="deso" />
+  <project path="build/kati" name="build_kati" groups="pdk,tradefed" remote="deso" />
   <project path="frameworks/base" name="frameworks_base" groups="pdk-cw-fs,pdk-fs" remote="deso" />
   <project path="frameworks/native" name="frameworks_native" groups="pdk" remote="deso" />
   <project path="manifest" name="manifest" remote="deso" />
   <project path="packages/apps/NovaLauncher" name="packages_apps_NovaLauncher" remote="deso" />
-  <project path="packages/apps/Settings" name="platform/packages/apps/Settings" groups="pdk-fs" remote="deso" />
-  <project path="system/sepolicy" name="platform/system/sepolicy" groups="pdk" remote="deso" />
+  <project path="packages/apps/Settings" name="packages_apps_Settings" groups="pdk-fs" remote="deso" />
+  <project path="system/sepolicy" name="system_sepolicy" groups="pdk" remote="deso" />
   <project path="vendor/deso" name="vendor_deso" remote="deso" />
   <!-- DESOLATION END -->
 
