@@ -542,6 +542,7 @@
   <project path="manifest" name="manifest" remote="deso" />
   <project path="packages/apps/Contacts" name="packages_apps_Contacts" groups="pdk-fs" remote="deso" />
   <project path="packages/apps/ContactsCommon" name="packages_apps_ContactsCommon" groups="pdk-fs" remote="deso" />
+  <project path="packages/apps/masquerade" name="nicholaschum/masquerade" revision="master" remote="github" />
   <project path="packages/apps/NovaLauncher" name="packages_apps_NovaLauncher" remote="deso" />
   <project path="packages/apps/PhoneCommon" name="packages_apps_PhoneCommon" groups="pdk-cw-fs,pdk-fs" remote="deso" />
   <project path="packages/apps/Settings" name="packages_apps_Settings" groups="pdk-fs" remote="deso" />
