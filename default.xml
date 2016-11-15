@@ -546,6 +546,7 @@
   <project path="packages/apps/NovaLauncher" name="packages_apps_NovaLauncher" remote="deso" />
   <project path="packages/apps/PhoneCommon" name="packages_apps_PhoneCommon" groups="pdk-cw-fs,pdk-fs" remote="deso" />
   <project path="packages/apps/Settings" name="packages_apps_Settings" groups="pdk-fs" remote="deso" />
+  <project path="packages/apps/substratum" name="packages_apps_Substratum" remote="deso" />
   <project path="system/sepolicy" name="system_sepolicy" groups="pdk" remote="deso" />
   <project path="vendor/deso" name="vendor_deso" remote="deso" />
   <!-- DESOLATION END -->
